@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rep Counter</title>
+    <style>
+        .video-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        video {
+            width: 320px;
+            height: 240px;
+        }
+    </style>
+    <script>
+        function showExerciseDemo() {
+            var exercise = document.getElementById("exercise").value;
+            var videos = document.getElementsByClassName("demo-video");
+
+            for (var i = 0; i < videos.length; i++) {
+                if (videos[i].id === exercise + "-video") {
+                    videos[i].style.display = "block";
+                } else {
+                    videos[i].style.display = "none";
+                }
+            }
+        }
+
+        function hideExerciseDemo() {
+            var videos = document.getElementsByClassName("demo-video");
+
+            for (var i = 0; i < videos.length; i++) {
+                videos[i].style.display = "none";
+            }
+        }
+        
+        // Show exercise demo initially if already selected
+        window.addEventListener('DOMContentLoaded', function() {
+            showExerciseDemo();
+        });
+    </script>
+</head>
+<body>
+    <h1>Rep Counter</h1>
+    <form action="/video_feed" method="post" onchange="showExerciseDemo()">
+        <label for="exercise">Select Exercise:</label>
+        <select id="exercise" name="exercise">
+            <option value="pushups">Push-ups</option>
+            <option value="squats">Squats</option>
+            <option value="lunges">Lunges</option>
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Start">
+    </form>
+    <br>
+    <div class="video-container">
+        <video id="pushups-video" class="demo-video" src="{{ url_for('static', filename='pushups_demo.mp4') }}" controls></video>
+        <video id="squats-video" class="demo-video" src="{{ url_for('static', filename='squats_demo.mp4') }}" controls></video>
+        <video id="lunges-video" class="demo-video" src="{{ url_for('static', filename='lunges_demo.mp4') }}" controls></video>
+    </div>
+    <br>
+    <img src="{{ url_for('video_feed') }}" width="640" height="480">
+</body>
+</html>
