@@ -5,5 +5,8 @@ Developed a real-time rep counter web application using Mediapipe computer visio
 
 This description highlights the key technologies used (Mediapipe and Flask), the main functionalities of the project (real-time rep counting, exercise selection, and demonstration videos), and the value it brings to users (enhanced workout experience).
 
-![](https://github.com/S1DdharTH16/Rep-Counter-using-Mediapipe/blob/main/demo_pushups.gif)
+<p align="center">
+  <img src="https://github.com/S1DdharTH16/Rep-Counter-using-Mediapipe/blob/main/demo_pushups.gif" width="750" alt="accessibility text">
+</p>
+
 
